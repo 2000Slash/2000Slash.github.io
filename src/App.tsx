@@ -1,12 +1,26 @@
 import React from "react";
 import { hot } from "react-hot-loader";
 import { Button } from "@material-ui/core"
+import Navbar from './Navbar';
+import About from './About';
+import Projects from './Projects';
+import { HashRouter, Switch, Route } from "react-router-dom";
 
 function App() {
     return(
-        <div>
-            <Button variant="contained" color="primary"> Hello World </Button>
-        </div>
+        <HashRouter>
+            <div>
+                <Navbar />
+                <Switch>
+                <Route path="/about">
+                    <About />
+                </Route>
+                <Route path="/projects">
+                    <Projects />
+                </Route>
+                </Switch>
+            </div>
+        </HashRouter>
     );
 }
 

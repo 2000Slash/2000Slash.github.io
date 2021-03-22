@@ -25,8 +25,9 @@ module.exports = {
     },
     resolve: { extensions: ["*", ".js", ".jsx", ".ts", ".tsx"] },
     devServer: {
-        port: 3000,
-        hotOnly: true
+        compress: true,
+        disableHostCheck: true,
+        port: 8000
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
