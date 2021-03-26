@@ -14,15 +14,15 @@ const useStyles = makeStyles({
 export default function Projects() {
     const classes = useStyles();
     const [ projects, setProjects] = useState([
-        { id: 1, name: "Hallo", description: "Test", html_url: "www.google.de" },
-        { id: 2, name: "Hallo", description: "Test", html_url: "www.google.de" }
+        { id: 1, name: "Hallo", description: "Hallo welt mir geht es gut wie geht es dir omegalul", html_url: "www.google.de", language: "java" },
+        { id: 2, name: "Hallo", description: "Test", html_url: "www.google.de", language: "java" }
     ]);
     const projectsHtml = [];
     for(const test of projects) {
         console.log(test)
         projectsHtml.push(
             <Grid md={3} xs={12} className={classes.root} key={test.id} item>
-                <Project link={test.html_url} title={test.name} text={test.description}/>    
+                <Project language={test.language} link={test.html_url} title={test.name} text={test.description}/>    
             </Grid>
         );
     }

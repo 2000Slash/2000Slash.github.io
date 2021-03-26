@@ -4,7 +4,8 @@ import { Card, CardContent, Typography, CardActions, Button, makeStyles, Link } 
 type ProjectProps = {
     title: string,
     text: string,
-    link: string
+    link: string,
+    language: string
 }
 
 const useStyles = makeStyles({
@@ -25,6 +26,7 @@ export default function meem(props: ProjectProps) {
         <Card className={classes.card}>
             <CardContent>
                 <Typography variant="h4">{props.title}</Typography>
+                <Typography variant="subtitle2" color="textSecondary">{props.language}</Typography>
                 <Typography className={classes.description}>{props.text}</Typography>
             </CardContent>
             <CardActions>
