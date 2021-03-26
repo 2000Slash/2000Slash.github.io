@@ -39,7 +39,7 @@ export default function Navbar() {
             <Drawer anchor='left' open={state['opened']} onClose={toggleDrawer(false)} onClick={toggleDrawer(false)}>
                 <div className={classes.drawer} role="presentation">
                     <List>
-                        <ListItem button component={RouterLink} to="/about">
+                        <ListItem button component={RouterLink} to="/">
                             <ListItemIcon><Info /></ListItemIcon>
                             <ListItemText primary="About" />
                         </ListItem>
@@ -50,18 +50,18 @@ export default function Navbar() {
                     </List>
                 </div>
             </Drawer>
-            <AppBar position="fixed">
+            <AppBar position="fixed" color="primary">
                 <Toolbar>
                     <Typography variant="h5" className={classes.title}>
                         Nils Hartmann
                     </Typography>
                     <Box display={{ xs: 'none', sm: 'block', md: 'block' }}>
-                        <Button color="inherit" component={RouterLink} to="/about" className={classes.links}>
+                        <Button startIcon={<Info />} color="inherit" component={RouterLink} to="/" className={classes.links}>
                             About
                         </Button>
                     </Box>
                     <Box display={{ xs: 'none', sm: 'block', md: 'block' }}>
-                        <Button color="inherit" component={RouterLink} to="/projects">
+                        <Button startIcon={<GitHub />} color="inherit" component={RouterLink} to="/projects">
                             Projects
                         </Button>
                     </Box>
