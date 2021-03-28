@@ -41,7 +41,7 @@ export default function Navbar() {
                     <List>
                         <ListItem button component={RouterLink} to="/">
                             <ListItemIcon><Info /></ListItemIcon>
-                            <ListItemText primary="About" />
+                            <ListItemText primary="About Me" />
                         </ListItem>
                         <ListItem button component={RouterLink} to="/projects">
                             <ListItemIcon><GitHub /></ListItemIcon>
@@ -57,7 +57,7 @@ export default function Navbar() {
                     </Typography>
                     <Box display={{ xs: 'none', sm: 'block', md: 'block' }}>
                         <Button startIcon={<Info />} color="inherit" component={RouterLink} to="/" className={classes.links}>
-                            About
+                            About Me
                         </Button>
                     </Box>
                     <Box display={{ xs: 'none', sm: 'block', md: 'block' }}>
