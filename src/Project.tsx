@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import axios from 'axios';
-import { Dialog, DialogTitle, DialogActions, DialogContent, DialogContentText, Card, CardContent, Typography, CardActions, Button, makeStyles, Link } from '@material-ui/core'
+import { Dialog, CircularProgress, DialogTitle, DialogActions, DialogContent, DialogContentText, Card, CardContent, Typography, CardActions, Button, makeStyles, Link } from '@material-ui/core'
+import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 
 type ProjectProps = {
     title: string,
@@ -24,14 +25,14 @@ const useStyles = makeStyles({
         wordBreak: "break-word"
     },
     dialogMarkdown: {
-        maxWidth: "75%"
+        maxWidth: "100%"
     }
 });
 
 export default function meem(props: ProjectProps) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
-    const [readme, setReadme] = React.useState("Sorry this repository does not have a readme.");
+    const [readme, setReadme] = React.useState("");
     const handleClick = () => {
         axios.get(`https://api.github.com/repos/2000Slash/${props.title}/readme`, 
             {
@@ -41,17 +42,26 @@ export default function meem(props: ProjectProps) {
                 data: {}
             }).then((response) => {
                 setReadme(response.data);
+            }).catch((err) => {
+                setReadme("Sorry this repository does not have a readme.");
             });
         setOpen(!open);
     };
 
+    var readmeContent: JSX.Element
+    if (readme == "") {
+        readmeContent = <CircularProgress />
+    } else {
+        readmeContent = <Typography className={classes.dialogText}><ReactMarkdown>{readme}</ReactMarkdown></Typography>;
+    }
+
     return(
         <Card className={classes.card}>
-            <Dialog open={open}>
-                <DialogTitle>{props.title}</DialogTitle>
+            <Dialog open={open} fullWidth maxWidth="lg">
+                <DialogTitle>Readme</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        <Typography className={classes.dialogText}><ReactMarkdown>{readme}</ReactMarkdown></Typography>
+                        { readmeContent }
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>

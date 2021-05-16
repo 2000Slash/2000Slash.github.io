@@ -1,10 +1,10 @@
 import React from 'react';
-import { Box, Typography, makeStyles, createStyles, Theme } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 export default function About() {
     return(
         <Box mx="auto" maxWidth="80%" mt={15}>
-                <Typography variant="h2">About</Typography>
-                <Typography>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</Typography>
+                <Typography variant="h4">About Me</Typography>
+                <Typography>Hi I'm Nils. Thank you for checking out my website. Im currently studying Computer Science and I'm interested in many different IT related topics. You can find my github <a href="https://github.com/2000Slash">here</a> and see what I'm working on in the Projects tab.</Typography>
         </Box>
     )
 }
